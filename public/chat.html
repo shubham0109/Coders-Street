@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+
+    <body class="chat">
+        
+        <div class="chat__sidebar">
+            <h3>People</h3>
+            <div id="users"></div>
+        </div>
+        
+        <div class="chat__main">
+            <div id="messages" class="chat__messages">
+            </div>        
+        
+            <div class="chat__footer">
+                <form id="message-form">
+                    <input name="message" placeholder="text here" autofocus autocomplete="off">
+                    <button>Send</button>
+                </form>
+            </div>
+        </div>
+
+        <script id="message-template" type="text/template">
+            <li class="message">
+                <div class="message__title">
+                    <h4> {{ from }} </h4>
+                    <span>{{ createdAt }}</span>
+                </div>
+                <div class="message__body">
+                    <p>{{{text}}}</p>    
+                </div>
+            </li>
+        </script>
+        
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="lib/jquery.js"></script>
+        <script src="lib/moment.js"></script>
+        <script src="lib/moustache.js"></script>
+        <script src="lib/deparam.js"></script>
+        <script src="js/chat.js"></script>
+    </body>
+</html>
