@@ -8,7 +8,12 @@
   }
   
   ul, li {
-    list-style-position: inside;
+    list-style-position: inside; 
+  }
+
+  #side__list {
+    color: green;
+    list-style-type: disc;
   }
   
   h3 {
@@ -155,7 +160,10 @@
   }
   
   .message {
-    padding: 10px;
+    border-radius: 25px;
+    border: 2px solid rgb(120, 159, 185);
+    padding: 20px; 
+    margin: 3px;
   }
   
   .message__title {
@@ -173,7 +181,7 @@
     font-style: italic;
     font-family: cursive;
   }
-  
+
   @media (max-width: 600px) {
     * {
       font-size: 1rem;

@@ -17,6 +17,28 @@ function scrollToBottom (){
 
 socket.on('connect', function() { 
     var params = $.deparam(window.location.search);
+    var room = params.room;
+    console.log("from connection ", room);
+    switch(room){
+        case "javascript":
+            var h3 = $("<h3></h3>").text('JavaScript');
+            $('#h3_heading').html(h3);
+            $("div.chat__sidebar").css("background", "#f19019")
+            $(".message").css("border", "2px solid #f19019")
+            break;
+        case "nodejs":
+            params.from = 'nodejs';
+            break;
+        case "python":
+            params.from = 'ThePSF';
+            break;
+        case "react":
+            params.from = 'ReactJSNews';
+            break;
+        case "angular":
+            params.from = 'AngularJS_News';
+            break;    
+    }
 
     socket.emit('join', params, function(err){
         if (err){
@@ -36,7 +58,7 @@ socket.on('userUpdate', function(userList){
     console.log('users: ' + userList);
     var ul = $('<ul></ul>');
     userList.forEach(function (user){
-        ul.append($('<li></li>').text(user));
+        ul.append($('<li id="side__list"></li>').text(user));
     }); 
     $('#users').html(ul);
 });
@@ -51,6 +73,7 @@ socket.on('newMsg', function(data) {
         createdAt : time
     });
     $('#messages').append(rendered);
+    $(".message").css("border", "2px solid #f19019")
     scrollToBottom();
 });
 
@@ -67,4 +90,8 @@ $('document').ready(function(){
     });
 });
 
+setInterval(function timeForTweet (){
+    console.log("fired");
+    socket.emit('tweet');
+}, 60000*15);
 

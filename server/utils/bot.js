@@ -12,9 +12,27 @@ function Bot(room,callback){
 
     var params = { 
         from: 'JavaScriptDaily',
-        count: 1
+        count: 10
     }
-        
+    
+    switch(room){
+        case "javascript":
+            params.from = 'JavaScriptDaily';
+            break;
+        case "nodejs":
+            params.from = 'nodejs';
+            break;
+        case "python":
+            params.from = 'ThePSF';
+            break;
+        case "react":
+            params.from = 'ReactJSNews';
+            break;
+        case "angular":
+            params.from = 'AngularJS_News';
+            break;    
+    }
+    
     T.get('search/tweets', params, gotData);
 
     function gotData(err, data, response) {
@@ -30,7 +48,7 @@ function Bot(room,callback){
             });
         }
      //   console.log(tweetsArray);
-        tweet = tweetsArray[0];
+        tweet = tweetsArray[Math.floor(Math.random()*10)];
         callback(tweet);
     };
  //   console.log("tweet from bot: " + tweet);

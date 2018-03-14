@@ -35,6 +35,7 @@ io.on('connection', (socket) => {
         io.to(params.room).emit('userUpdate', users.getUserList(params.room));
         socket.emit('newMsg', generateMessage('Admin','welcome to the chat'));
         socket.broadcast.to(params.room).emit('newMsg', generateMessage('Admin',`${params.name} joined`)); 
+        tweetIt(params.room);
         callback();
     });
 
@@ -52,10 +53,15 @@ io.on('connection', (socket) => {
         var user = users.getUser(socket.id);
         if (user && isRealString(data.text)){
             io.to(user.room).emit('newMsg', generateMessage(user.name, data.text));
-            tweetIt(user.room);
+        //    tweetIt(user.room);
             callback('from the server');
         }
         
+    });
+
+    socket.on('tweet', function(){
+        var user = users.getUser(socket.id);
+        tweetIt(user.room);
     });
 
     function tweetIt (room){
@@ -66,8 +72,7 @@ io.on('connection', (socket) => {
             socket.emit('newMsg', generateMessage('Twit-Bot', tweet));
         });
         
-    }
-    
+    }  
     
 });
 
