@@ -23,20 +23,38 @@ socket.on('connect', function() {
         case "javascript":
             var h3 = $("<h3></h3>").text('JavaScript');
             $('#h3_heading').html(h3);
-            $("div.chat__sidebar").css("background", "#f19019")
-            $(".message").css("border", "2px solid #f19019")
+            $("div.chat__sidebar").css("background", "#f19019");
+        //    $("#messages").css("border", "2px solid #f19019");
+            $("button").css("background", "#f19019");
+            $("message").css("background", "#f19019");
+            $("div.chat__footer").css("background", "#d09d51");
             break;
         case "nodejs":
-            params.from = 'nodejs';
+            var h3 = $("<h3></h3>").text('NodeJS');
+            $('#h3_heading').html(h3);
+            $("div.chat__sidebar").css("background", "#3c8736");
+            $("button").css("background", "#3c8736");
+            $("div.chat__footer").css("background", "#81cc73");
+            $(".message").css("border", "2px solid #3c8736");
             break;
         case "python":
-            params.from = 'ThePSF';
+            $("div.chat__footer").css("background", "#b1cae2");
             break;
         case "react":
-            params.from = 'ReactJSNews';
+            var h3 = $("<h3></h3>").text('ReactJS');
+            $('#h3_heading').html(h3);
+            $("div.chat__sidebar").css("background", "#50e0de");
+            $("button").css("background", "#50e0de");
+            $("div.chat__footer").css("background", "#c5efdf");
+            $(".message").css("border", "2px solid #f19019")
             break;
         case "angular":
-            params.from = 'AngularJS_News';
+            var h3 = $("<h3></h3>").text('AngularJS');
+            $('#h3_heading').html(h3);
+            $("div.chat__sidebar").css("background", "#b20527");
+            $("button").css("background", "#b20527");
+            $("div.chat__footer").css("background", "rgba(245, 188, 202, 1)");
+            $(".message").css("border", "2px solid #f19019");
             break;    
     }
 
@@ -73,7 +91,7 @@ socket.on('newMsg', function(data) {
         createdAt : time
     });
     $('#messages').append(rendered);
-    $(".message").css("border", "2px solid #f19019")
+    //$(".message").css("border", "2px solid #f19019")
     scrollToBottom();
 });
 

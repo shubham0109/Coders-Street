@@ -26,7 +26,7 @@ function Bot(room,callback){
             params.from = 'ThePSF';
             break;
         case "react":
-            params.from = 'ReactJSNews';
+            params.from = 'reactnewsletter';
             break;
         case "angular":
             params.from = 'AngularJS_News';
@@ -48,7 +48,9 @@ function Bot(room,callback){
             });
         }
      //   console.log(tweetsArray);
-        tweet = tweetsArray[Math.floor(Math.random()*10)];
+        var maxLen = tweetsArray.length;
+        tweet = tweetsArray[Math.floor(Math.random()*maxLen)];
+    //    console.log("tweet: ", tweetsArray);
         callback(tweet);
     };
  //   console.log("tweet from bot: " + tweet);
