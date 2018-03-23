@@ -73,7 +73,7 @@ socket.on('disconnect', function() {
 });
 
 socket.on('userUpdate', function(userList){
-    console.log('users: ' + userList);
+    //console.log('users: ' + userList);
     var ul = $('<ul></ul>');
     userList.forEach(function (user){
         ul.append($('<li id="side__list"></li>').text(user));
@@ -82,7 +82,7 @@ socket.on('userUpdate', function(userList){
 });
 
 socket.on('newMsg', function(data) {
-    console.log(data);
+    //console.log(data);
     var time = moment(data.createdAt).format('h:mm a');
     var template = $('#message-template').html();
     var rendered = Mustache.render(template, {
@@ -109,7 +109,7 @@ $('document').ready(function(){
 });
 
 setInterval(function timeForTweet (){
-    console.log("fired");
+    //console.log("fired");
     socket.emit('tweet');
 }, 60000*15);
 

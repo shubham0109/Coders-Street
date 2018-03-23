@@ -2,7 +2,7 @@ var Twit = require("twit");
 var config = require("./config");
 
 function Bot(room,callback){
-    console.log("the bot is starting");
+ //   console.log("the bot is starting");
     let tweetsArray = [];
  //   const repl = require("repl");
 
@@ -37,7 +37,7 @@ function Bot(room,callback){
 
     function gotData(err, data, response) {
         var tweets = data.statuses;
-        console.log("hello");
+    //    console.log("hello");
         for (var i = 0; i<tweets.length; i++){
             tweetsArray.push(urlify(tweets[i].text));
         }

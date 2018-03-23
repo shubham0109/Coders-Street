@@ -29,9 +29,6 @@ io.on('connection', (socket) => {
         users.removeUser(socket.id);
         users.addUser(socket.id, params.name, params.room);
 
-        // io.to(params.room).emit -> emits it to everyone
-        // socket.broadcast.to(params.room).emit -> emits to everyone except the sender
-        // socket.emit() -> emits it to sender
         io.to(params.room).emit('userUpdate', users.getUserList(params.room));
         socket.emit('newMsg', generateMessage('Admin','welcome to the chat'));
         socket.broadcast.to(params.room).emit('newMsg', generateMessage('Admin',`${params.name} joined`)); 
@@ -68,7 +65,7 @@ io.on('connection', (socket) => {
       //  var user = users.getUser(socket.id);
       //  console.log(user);
         Bot(room,function(tweet){
-            console.log("from server:" + tweet);
+        //    console.log("from server:" + tweet);
             socket.emit('newMsg', generateMessage('Twit-Bot', tweet));
         });
         

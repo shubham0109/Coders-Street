@@ -33,7 +33,7 @@
   button {
     border: none;
     border-radius: 4px;
-    background: #265f82;
+    background: #c78016;
     color: white;
     cursor: pointer;
     padding: 10px;
@@ -42,14 +42,9 @@
   
   button:hover {
     border: none;
-    background: #1F4C69;
+    background: rgb(202, 88, 13);
     color: white;
     padding: 10px;
-  }
-  
-  button:disabled {
-    cursor: default;
-    background: #698ea5;
   }
   
   .centered-form {
@@ -58,12 +53,12 @@
     height: 100vh;
     width: 100vw;
     justify-content: center;
-    background: -moz-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* ff3.6+ */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(49,84,129,1)), color-stop(100%, rgba(39,107,130,1))); /* safari4+,chrome */
-    background: -webkit-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* safari5.1+,chrome10+ */
-    background: -o-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* opera 11.10+ */
-    background: -ms-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* ie10+ */
-    background: linear-gradient(325deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* w3c */
+    background: -moz-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(249,165,29,1) 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(249,165,29,1)), color-stop(100%, rgba(39,107,130,1))); /* safari4+,chrome */
+    background: -webkit-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(249,165,29,1) 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(249,165,29,1) 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(249,165,29,1) 100%); /* ie10+ */
+    background: linear-gradient(325deg, rgba(39,107,130,1) 0%, rgba(249,165,29,1) 100%); /* w3c */
   }
   
   .centered-form__form {
